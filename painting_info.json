@@ -1,0 +1,94 @@
+{
+  "paintings": [
+    {
+      "painting_title": "Mona Lisa",
+      "artist": "Leonardo da Vinci",
+      "date_created": "1503 to 1519",
+      "period": "Renaissance",
+      "keywords": "woman",
+      "location": "Louvre Museum (Paris)",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029114135-01-most-famous-paintings-mona-lisa.jpg?q=w_4874,h_3249,x_0,y_0,c_fill/w_1280"
+    },
+    {
+      "painting_title": "The Last Supper",
+      "artist": "Leonardo da Vinci",
+      "date_created": "1495 to 1498",
+      "period": "Renaissance",
+      "keywords": "religion, food, people",
+      "location": "Santa Maria delle Grazie (Milan, Italy)",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029114347-02-most-famous-paintings-last-supper.jpg?c=original&q=w_1280,c_fill"
+    },
+    {
+      "painting_title": "The Starry Night",
+      "artist": "Vincent van Gogh",
+      "date_created": "1889",
+      "period": "Modern",
+      "keywords": "abstract, nature, star",
+      "location": "Museum of Modern Art (New York City)",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029114425-03-most-famous-paintings-starry-night-restricted.jpg?q=w_3926,h_2675,x_0,y_0,c_fill/w_1280"
+    },
+    {
+      "painting_title": "The Scream",
+      "artist": "Edvard Munch",
+      "date_created": "1893",
+      "period": "Modern",
+      "keywords": "people",
+      "location": "National Museum",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029114518-04-most-famous-paintings-the-scream-restricted.jpg?q=w_4112,h_3104,x_0,y_0,c_fill/w_1280"
+    },
+    {
+      "painting_title": "Guernica",
+      "artist": "Pablo Picasso",
+      "date_created": "1937",
+      "period": "Modern",
+      "keywords": "abstract",
+      "location": "Museo Reina Sofía (Madrid)",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029114612-05-most-famous-paintings-guernica.jpg?q=w_3000,h_1922,x_0,y_0,c_fill/w_1280"
+    },
+    {
+      "painting_title": "The Kiss",
+      "artist": "Gustav Klimt",
+      "date_created": "1907",
+      "period": "Modern",
+      "keywords": "romance, people",
+      "location": "Upper Belvedere museum (Vienna, Austria)",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029114705-06-most-famous-paintings-the-kiss-restricted.jpg?q=w_3522,h_2344,x_0,y_0,c_fill/w_1280"
+    },
+    {
+      "painting_title": "Girl With a Pearl Earring",
+      "artist": "Johannes Vermeer",
+      "date_created": "1665",
+      "period": "Dutch Golden Age",
+      "keywords": "woman, portrait",
+      "location": "Mauritshuis (The Hague, Netherlands)",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029114856-07-most-famous-paintings-girl-with-a-pearl-earring-restricted.jpg?q=w_3082,h_2098,x_0,y_0,c_fill/w_1280"
+    },
+    {
+      "painting_title": "The Birth of Venus",
+      "artist": "Sandro Botticelli",
+      "date_created": "Sandro Botticelli",
+      "period": "Renaissance",
+      "keywords": "woman, religion, ocean",
+      "location": "Le Gallerie Degli Uffizi (Florence, Italy)",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029115047-08-most-famous-paintings-birth-of-venus.jpg?q=w_3709,h_2474,x_0,y_0,c_fill/w_1280"
+    },
+    {
+      "painting_title": "Las Meninas",
+      "artist": "Diego Velázquez",
+      "date_created": "1656",
+      "period": "Baroque",
+      "keywords": "people, woman",
+      "location": "Museo del Prado (Madrid)",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029115119-09-most-famous-paintings-las-meninas.jpg?q=w_3000,h_2145,x_0,y_0,c_fill/w_1280"
+    },
+    {
+      "painting_title": "Creation of Adam",
+      "artist": "Michelangelo",
+      "date_created": "1508 to 1512",
+      "period": "Renaissance",
+      "keywords": "religion, people, man",
+      "location": "Sistine Chapel (Vatican City)",
+      "url": "https://media.cnn.com/api/v1/images/stellar/prod/191029115234-10-most-famous-paintings-creation-of-adam-restricted.jpg?q=w_4639,h_3099,x_0,y_0,c_fill/w_1280"
+    }
+  ]
+}
