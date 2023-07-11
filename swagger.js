@@ -5,7 +5,7 @@ const doc = {
         title: 'My API',
         description: 'Description'
     },
-    host: 'cse341-paintings.onrender.com/',
+    host: 'cse341-paintings.onrender.com',
     basePath: '/',
     schemes: ['https']
 };
