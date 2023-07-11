@@ -4,12 +4,12 @@ const usersController = require('../controllers/users');
 
 routes.get('/users', usersController.getAllUsers);
 
-routes.get('/users/:id',usersController.getSinglePicture);
+routes.get('/users/:id', usersController.getSinglePainting);
 
-routes.post('/users', usersController.addPicture);
+routes.post('/users', usersController.addPainting);
 
-routes.put('/users/:id', usersController.editPicture);
+routes.put('/users/:id', usersController.editPainting);
 
-routes.delete('/users/:id', usersController.deletePicture);
+routes.delete('/users/:id', usersController.deletePainting);
 
 module.exports = routes;
