@@ -34,7 +34,7 @@ const addPainting = async (req, res) => {
         url: req.body.url
     };
 
-    const response = await database.insertOne(newContact);
+    const response = await database.insertOne(newPainting);
     if (response.acknowledged) {
         res.status(201).json(response);
     } else {
@@ -70,7 +70,7 @@ const deletePainting = async (req, res) => {
     if (response.acknowledged) {
         res.status(204).json(response);
     } else {
-        res.status(500).json(response.error || 'Error occurred while creating contact');
+        res.status(500).json(response.error || 'Error occurred while deleting Painting');
     }
 };
 
