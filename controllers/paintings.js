@@ -77,15 +77,16 @@ const editPainting = async (req, res) => {
 
         const response = await database.replaceOne({_id: paintingId}, newPainting);
 
+        console.log(response);
+        
         if (response.acknowledged) {
             res.status(201).json(res);
-        } else {
-            res.status(500).json(res.error || 'Error occurred while adding painting');
         }
     } catch (error){
         if (error.isJoi === true) {
             res.status(422).json(error);
         }
+        res.status(500).json(res.error || 'Error occurred while adding painting');
     }
 
 };
