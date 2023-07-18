@@ -39,7 +39,7 @@ const addPainting = async (req, res) => {
             artist: req.body.artist,
             date_created: req.body.date_created,
             period: req.body.period,
-            keywords: req.body.keywords,
+            keywords: [req.body.keywords],
             location: req.body.location,
             url: req.body.url
         };
