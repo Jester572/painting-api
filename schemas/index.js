@@ -7,7 +7,7 @@ const PaintingSchema = Joi.object({
     artist : Joi.string().required(),
     date_created : Joi.string().optional().allow(''),
     period : Joi.string().required(),
-    keywords : [string().optional().allow('')],
+    keywords : Joi.array().optional().allow(''),
     location : Joi.string().optional().allow(''),
     url : Joi.uri().optional().allow(''),
 })
