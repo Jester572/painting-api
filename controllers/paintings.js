@@ -1,4 +1,5 @@
 const mongodb = require('../db/connect');
+const { PaintingSchema } = require('../schemas/index');
 const ObjectId = require('mongodb').ObjectId;
 
 const database = mongodb.getDb().db('paintings').collection('paintings');
@@ -33,6 +34,8 @@ const addPainting = async (req, res) => {
         location: req.body.location,
         url: req.body.url
     };
+
+    const result = await PaintingSchema.validateAsync(newPainting)
 
     const response = await database.insertOne(newPainting);
     if (response.acknowledged) {
