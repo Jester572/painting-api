@@ -25,25 +25,30 @@ const getSinglePainting = async (req, res) => {
 };
 
 const addPainting = async (req, res) => {
-    const newPainting = {
-        painting_title: req.body.painting_title,
-        artist: req.body.artist,
-        date_created: req.body.date_created,
-        period: req.body.period,
-        keywords: req.body.keywords,
-        location: req.body.location,
-        url: req.body.url
-    };
+    try {
+        const newPainting = {
+            painting_title: req.body.painting_title,
+            artist: req.body.artist,
+            date_created: req.body.date_created,
+            period: req.body.period,
+            keywords: req.body.keywords,
+            location: req.body.location,
+            url: req.body.url
+        };
 
-    const result = await PaintingSchema.validateAsync(newPainting)
+        const result = await PaintingSchema.validateAsync(newPainting)
 
-    const response = await database.insertOne(newPainting);
-    if (response.acknowledged) {
-        res.status(201).json(response);
-    } else {
-        res.status(500).json(response.error || 'Error occurred while adding painting');
+        const response = await database.insertOne(newPainting);
+        if (response.acknowledged) {
+            res.status(201).json(response);
+        } else {
+            res.status(500).json(response.error || 'Error occurred while adding painting');
+        }
+    } catch (error){
+        if (error.isJoi === true) {
+            res.status(422).json(result.error);
+        }
     }
-
 };
 
 const editPainting = async (req, res) => {
