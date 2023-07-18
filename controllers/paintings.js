@@ -46,7 +46,7 @@ const addPainting = async (req, res) => {
         }
     } catch (error){
         if (error.isJoi === true) {
-            res.status(422).json(result.error);
+            res.status(422).json(error);
         }
     }
 };
