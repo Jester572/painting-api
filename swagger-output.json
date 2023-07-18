@@ -61,6 +61,9 @@
           "201": {
             "description": "Created"
           },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -181,6 +184,41 @@
           }
         }
       }
+    }
+  },
+  "definitions": {
+    "swagger": {
+      "type": "object",
+      "properties": {
+        "painting_title": {
+          "type": "string"
+        },
+        "artist": {
+          "type": "string"
+        },
+        "date_created": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {}
+        },
+        "location": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "painting_title",
+        "artist",
+        "period"
+      ],
+      "additionalProperties": false
     }
   }
 }

@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "joi-to-swagger": "^6.2.0",
     "nodemon": "^3.0.0",
     "swagger-autogen": "^2.23.4"
   },
