@@ -7,15 +7,22 @@
   },
   "host": "cse341-paintings.onrender.com",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/paintings": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -41,7 +48,7 @@
                   "example": "any"
                 },
                 "keywords": {
-                  "example": ["Red", "Blue", "Yellow"]
+                  "example": "any"
                 },
                 "location": {
                   "example": "any"
@@ -69,10 +76,15 @@
     "/painting_names": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -80,7 +92,9 @@
     "/paintings/{id}": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -123,7 +137,7 @@
                   "example": "any"
                 },
                 "keywords": {
-                  "example": ["Red", "Blue", "Yellow"]
+                  "example": "any"
                 },
                 "location": {
                   "example": "any"
@@ -136,8 +150,11 @@
           }
         ],
         "responses": {
-          "20": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"
@@ -167,10 +184,15 @@
     "/artists": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -203,7 +225,11 @@
           "type": "string"
         }
       },
-      "required": ["painting_title", "artist", "period"],
+      "required": [
+        "painting_title",
+        "artist",
+        "period"
+      ],
       "additionalProperties": false
     }
   }
