@@ -45,7 +45,7 @@
                   "example": "any"
                 },
                 "keywords": {
-                  "example": "any"
+                  "example": ["Red", "Blue", "Yellow"]
                 },
                 "location": {
                   "example": "any"
