@@ -1,4 +1,4 @@
-import Joi, { optional } from "joi";
+const Joi = require('joi');
 
 const UserSchema = Joi.string().required();
 
