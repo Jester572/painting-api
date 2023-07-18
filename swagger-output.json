@@ -7,16 +7,12 @@
   },
   "host": "cse341-paintings.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/paintings": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -73,9 +69,7 @@
     "/painting_names": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -86,9 +80,7 @@
     "/paintings/{id}": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -131,7 +123,7 @@
                   "example": "any"
                 },
                 "keywords": {
-                  "example": "any"
+                  "example": ["Red", "Blue", "Yellow"]
                 },
                 "location": {
                   "example": "any"
@@ -175,9 +167,7 @@
     "/artists": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -213,11 +203,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "painting_title",
-        "artist",
-        "period"
-      ],
+      "required": ["painting_title", "artist", "period"],
       "additionalProperties": false
     }
   }
