@@ -74,7 +74,8 @@ const editPainting = async (req, res) => {
         };
 
         const result = await PaintingSchema.validateAsync(newPainting);
-        const response = await database.replaceOne({_id: paintingId}, newContact);
+
+        const response = await database.replaceOne({_id: paintingId}, newPainting);
 
         if (response.acknowledged) {
             res.status(201).json(res);
