@@ -63,6 +63,7 @@ const editPainting = async (req, res) => {
 
     try{
         const paintingId = new ObjectId(req.params.id);
+        
         const newPainting = {
             painting_title: req.body.painting_title,
             artist: req.body.artist,
@@ -78,7 +79,7 @@ const editPainting = async (req, res) => {
         const response = await database.replaceOne({_id: paintingId}, newPainting);
 
         console.log(response);
-        
+
         if (response.acknowledged) {
             res.status(201).json(res);
         }
