@@ -9,7 +9,7 @@ const PaintingSchema = Joi.object({
     period : Joi.string().required(),
     keywords : Joi.array().optional().allow(''),
     location : Joi.string().optional().allow(''),
-    url : Joi.uri().optional().allow(''),
+    url : Joi.string().optional().allow(''),
 })
 
 module.exports = {UserSchema, PaintingSchema};
