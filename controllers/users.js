@@ -1,4 +1,5 @@
 const mongodb = require('../db/connect');
+const { UserSchema } = require('../schemas');
 const ObjectId = require('mongodb').ObjectId;
 
 const database = mongodb.getDb().db('paintings').collection('users');
@@ -35,7 +36,7 @@ const getSingleUser = async (profile) => {
 
 const addUser = async (profile) => {
     try {
-        const result = await PaintingSchema.validateAsync(profile);
+        const result = await UserSchema.validateAsync(profile);
         const response = await database.insertOne(profile);
 
         if (response.acknowledged) {

@@ -11,9 +11,10 @@ passport.use(new GitHubStrategy({
     callbackURL: "http://localhost:3000/auth/github/callback"
 },
     async function (accessToken, refreshToken, profile, cb) {
-        newUser = {
+        const newUser = {
             githubId: profile.id,
             displayName: profile.displayName,
+            createdAt: new Date(),
         }
         try {
             console.log(newUser);
@@ -22,7 +23,7 @@ passport.use(new GitHubStrategy({
             //finnish the users controller to accomplish this
             const user = await userController.getSingleUser(newUser);
             if (!user) {
-                const newUser = await userController.addUser(newUser);
+                await userController.addUser(newUser);
             }
             cb(null, user)
         } catch (error) {
