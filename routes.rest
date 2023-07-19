@@ -1,0 +1,47 @@
+// Local Host
+
+Get http://localhost:3000/paintings
+
+###
+
+POST http://localhost:3000/paintings
+Content-Type: application/json
+
+{
+"painting_title": "test3",
+"artist": "Jesse",
+"date_created": "50",
+"period": "any",
+"keywords": [
+    "Not Sarah",
+    "midnight",
+    "purple"
+],
+"location": "any",
+"url": "any"
+}
+
+###
+
+PUT http://localhost:3000/paintings/64b735a8467d948b0fb60f82
+Content-Type: application/json
+
+{
+"painting_title": "test3",
+"artist": "Jesse",
+"date_created": "50",
+"period": "any",
+"keywords": [
+    "Not Sarah",
+    "midnight",
+    "purple"
+],
+"location": "any",
+"url": "any"
+}
+
+###
+
+DELETE http://localhost:3000/paintings/64ad0d35d52274ed868971ed
+
+###

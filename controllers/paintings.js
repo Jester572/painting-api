@@ -1,3 +1,4 @@
+const { response } = require('express');
 const mongodb = require('../db/connect');
 const { PaintingSchema } = require('../schemas/index');
 const ObjectId = require('mongodb').ObjectId;
@@ -48,7 +49,7 @@ const addPainting = async (req, res) => {
         const response = await database.insertOne(newPainting);
 
         if (response.acknowledged) {
-            res.status(201).json(response);
+            res.status(200).json(response);
         } else {
             res.status(500).json(response.error || 'Error occurred while adding painting');
         }
@@ -81,13 +82,13 @@ const editPainting = async (req, res) => {
         console.log(response);
 
         if (response.acknowledged) {
-            res.status(201).json(res);
+            res.status(201).json(response);
         }
     } catch (error){
         if (error.isJoi === true) {
             res.status(422).json(error);
         }
-        res.status(500).json(res.error || 'Error occurred while adding painting');
+        res.status(500).json(response.error || 'Error occurred while adding painting');
     }
 
 };
@@ -96,10 +97,11 @@ const deletePainting = async (req, res) => {
 
     try {
         const userId = new ObjectId(req.params.id);
+
         const response = await database.deleteOne({_id: userId});
 
         if (response.acknowledged) {
-            res.status(204).json(res);
+            res.status(204).json(response);
         } 
     } catch(error) {
         res.status(500).json(res.error || 'Error occurred while deleting Painting');
@@ -115,7 +117,7 @@ const getArtists = async (req, res) => {
         // results.toArray().then((lists) => {
         //     artists = lists.map((list) => {return list.artist})
         res.setHeader('content-Type', 'application/json');
-        res.status(200).json(res);
+        res.status(200).json(results);
     } catch (error) {
         res.status(500).json(res.error || 'Error occurred while retrieving artists');
     }
