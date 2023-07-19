@@ -25,11 +25,15 @@ const getSinglePainting = async (req, res) => {
 
         const results = await database.find({_id: paintingId});
         results.toArray().then((lists) => {
-            res.setHeader('content-Type', 'application/json');
-            res.status(200).json(lists[0]);
+            if (lists.length === 0) {
+                res.status(404).json({ error: 'Painting not found' });
+            } else {
+                res.setHeader('content-Type', 'application/json');
+                res.status(200).json(lists[0]);
+            }
         });
     } catch (error) {
-
+        res.status(500).json(res.error || 'Error occurred while retrieving painting');
     }
 };
 

@@ -4,7 +4,7 @@ const paintingsController = require('../controllers/paintings');
 
 //Paintings
 routes.get('/login', (req, res) => {
-    res.redirect('/auth')
+    res.redirect('/auth/github')
 })
 
 routes.get('/paintings', paintingsController.getPaintings);

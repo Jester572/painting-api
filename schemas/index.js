@@ -1,6 +1,11 @@
 const Joi = require('joi');
 
-const UserSchema = Joi.string().required();
+const UserSchema = Joi.object({
+    githubId: Joi.string().required(),
+    displayName: Joi.string().required(),
+    createdAt: Joi.date().required(),
+})
+
 
 const PaintingSchema = Joi.object({
     painting_title : Joi.string().required(),
