@@ -28,6 +28,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use('/', require('./routes/paintings'));
+app.use('/', require('./routes/users'));
 app.use('/', require('./routes/api-documentation'));
 app.use('/', require('./routes/auth'));
 

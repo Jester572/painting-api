@@ -5,7 +5,7 @@ const database = mongodb.getDb().db('paintings').collection('users');
 
 const getUsers = async (req, res) => {
     try {
-        const results =  await database.find()
+        const results = await database.find()
         results.toArray().then((lists) => {
             res.setHeader('content-Type', 'application/json');
             res.status(200).json(lists)
@@ -17,19 +17,19 @@ const getUsers = async (req, res) => {
 
 const getSingleUser = async (profile) => {
     try {
-        const githubId = profile;
+        const githubId = profile.id;
 
-        const results = await database.find({githubId: githubId});
-        results.toArray().then((lists) => {
+        const results = await database.find({ githubId: githubId });
+        results.toArray().then(async (lists) => {
             if (lists.length === 0) {
+                console.log('no users');
                 addUser(profile);
             } else {
-                res.setHeader('content-Type', 'application/json');
-                res.status(200).json(lists[0]);
+                return lists[0];
             }
         });
     } catch (error) {
-        res.status(500).json(res.error || 'Error occurred while retrieving painting');
+        throw error;
     }
 };
 
@@ -39,15 +39,13 @@ const addUser = async (profile) => {
         const response = await database.insertOne(profile);
 
         if (response.acknowledged) {
-            res.status(200).json(response);
+            return response;
         } else {
-            res.status(500).json(response.error || 'Error occurred while adding painting');
+            throw new Error('Error occurred while adding user');
         }
 
     } catch (error) {
-        if (error.isJoi === true) {
-            res.status(422).json(error);
-        }
+        throw error;
     }
 };
 
