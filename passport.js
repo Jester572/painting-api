@@ -22,9 +22,7 @@ passport.use(new GitHubStrategy({
             //I think this should work... Hopefully. 
             //finnish the users controller to accomplish this
             const user = await userController.getSingleUser(newUser);
-            if (!user) {
-                await userController.addUser(newUser);
-            }
+
             cb(null, user)
         } catch (error) {
             console.log({ failedOAuthLogin: error });

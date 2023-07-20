@@ -8,7 +8,7 @@ const routes = express.Router();
 routes.get('/auth/failed', authController.authFailed);
 
 routes.get('/auth/github',
-    passport.authenticate('github', { scope: ['user:email'] }));
+    passport.authenticate('github'));
 
 routes.get('/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/auth/failed' }),

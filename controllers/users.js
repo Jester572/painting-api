@@ -1,6 +1,6 @@
 const mongodb = require('../db/connect');
 const { UserSchema } = require('../schemas');
-const ObjectId = require('mongodb').ObjectId;
+
 
 const database = mongodb.getDb().db('paintings').collection('users');
 
@@ -18,9 +18,8 @@ const getUsers = async (req, res) => {
 
 const getSingleUser = async (profile) => {
     try {
-        const githubId = profile.id;
 
-        const results = await database.find({ githubId: githubId });
+        const results = await database.find({ githubId: profile.githubId });
         results.toArray().then(async (lists) => {
             if (lists.length === 0) {
                 console.log('no users');
@@ -36,6 +35,7 @@ const getSingleUser = async (profile) => {
 
 const addUser = async (profile) => {
     try {
+        console.log(profile)
         const result = await UserSchema.validateAsync(profile);
         const response = await database.insertOne(profile);
 

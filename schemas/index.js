@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const UserSchema = Joi.object({
-    githubId: Joi.string().required(),
+    githubId: Joi.number().required(),
     displayName: Joi.string().required(),
     createdAt: Joi.date().required(),
 })
