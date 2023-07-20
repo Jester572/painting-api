@@ -2,13 +2,14 @@ const GitHubStrategy = require('passport-github').Strategy;
 const userController = require('./controllers/users');
 const User = require('./models/user');
 const passport = require('passport');
+const mongodb = require('./db/connect');
 
-
+const database = mongodb.getDb().db('paintings').collection('users');
 
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/github/callback"
+    callbackURL: "http://localhost:3000/auth/github"
 },
     async function (accessToken, refreshToken, profile, cb) {
         const newUser = {
@@ -17,16 +18,19 @@ passport.use(new GitHubStrategy({
             createdAt: new Date(),
         }
         try {
-            console.log(newUser);
-            //create an if statement to find or create a new user in place of what is below. 
-            //I think this should work... Hopefully. 
-            //finnish the users controller to accomplish this
-            const user = await userController.getSingleUser(newUser);
 
-            cb(null, user)
+            const user = await database.findOne({ githubId: profile.id });
+            console.log(user);
+            if (user) {
+                return cb(null, user)
+    
+            } else {
+                user = await userController.addUser(profile);
+                return cb(null, user);
+            }
+    
         } catch (error) {
-            console.log({ failedOAuthLogin: error });
-            cb(error)
+            throw error;
         }
 
     }
@@ -37,7 +41,8 @@ passport.use(new GitHubStrategy({
 
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    console.log(user);
+    done(null, user.githubId);
 });
 
 passport.deserializeUser(async (id, done) => {

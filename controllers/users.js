@@ -19,15 +19,16 @@ const getUsers = async (req, res) => {
 const getSingleUser = async (profile) => {
     try {
 
-        const results = await database.find({ githubId: profile.githubId });
-        results.toArray().then(async (lists) => {
-            if (lists.length === 0) {
-                console.log('no users');
-                addUser(profile);
-            } else {
-                return lists[0];
-            }
-        });
+        const user = await database.findOne({ githubId: profile.githubId });
+        if (user) {
+            cb(null, results)
+            console.log('no users');
+
+        } else {
+            user = await addUser(profile);
+            cb(null, user);
+        }
+
     } catch (error) {
         throw error;
     }

@@ -27,6 +27,10 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.get('/', (req, res) => {
+    res.send(req.isAuthenticated() ? 'Logged In' : 'Logged Out');
+  })
+
 app.use('/', require('./routes/paintings'));
 app.use('/', require('./routes/users'));
 app.use('/', require('./routes/api-documentation'));

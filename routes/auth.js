@@ -5,6 +5,7 @@ const authController = require('../controllers/auth');
 const routes = express.Router();
 
 
+
 routes.get('/auth/failed', authController.authFailed);
 
 routes.get('/auth/github',
